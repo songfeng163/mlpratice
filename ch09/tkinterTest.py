@@ -41,7 +41,7 @@ def reDraw(tolS, tolN):
     print('\nyHat: \n%s' % yHat)
     reDraw.a.scatter(reDraw.rawDat[:, 0].tolist(), reDraw.rawDat[:, 1].tolist(), s=5)  #这里使用tolist方法，否则出现1-D的异常
     reDraw.a.plot(reDraw.testDat, yHat, linewidth=2.0)
-    #reDraw.canvas.show()  #20190107发现新版的python中不使用这个show方法，使用的话，会出错
+    reDraw.canvas.show()  #20190107发现新版的python中不使用这个show方法，使用的话，会出错，通过在jyputer中测试发现，这句话不能注释，注释后，图形不能更新
 
 def getInputs():
     try:
