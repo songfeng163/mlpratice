@@ -239,6 +239,18 @@ def getActionIds():
     return actionIDList, billTitleList
 
 '''
+    p221--发现毒蘑菇的相似特征测试代码
+'''
+def testMushroom():
+    mushDatSet = [line.split() for line in open('mushroom.dat').readlines()]
+    L, suppData = apriori(mushDatSet, minSupport=0.3)
+    print('条目信息如下：')
+    #for item in L[1]:
+    for item in L[3]:
+        if item.intersection('2'):
+            print(item)
+
+'''
     内部测试方法
 '''
 if __name__ == '__main__':
@@ -246,4 +258,5 @@ if __name__ == '__main__':
     #testAuxiliary()    #测试辅助函数的方法
     #testAproiri()    #测试Apriori方法
     #testRulesApriori()   #测试规则方法
-    testVoteBase()     #投票的基本功能
+    #testVoteBase()     #投票的基本功能
+    testMushroom()      #测试发现有毒蘑菇的方法
