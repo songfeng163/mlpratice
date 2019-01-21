@@ -233,6 +233,18 @@ def testGetTweets():
     print('lotsOfTweets[0][4]的内容：\n', lotsOfTweets[0][4].text)
 
 '''
+    p238--测试从新闻网站点击流中按钮数据
+'''
+def testMineClickData():
+    parsedDat = [line.split() for line in open('kosarak.dat').readlines()]
+    initSet = createInitSet(parsedDat)
+    myFPtree, myHeaderTab = createTree(initSet, 100000)
+    myFreqList = []
+    mineTree(myFPtree, myHeaderTab, 100000, set([]), myFreqList)
+    print('myFreqList的长度：', len(myFreqList))
+    print('myFreqList的内容：\n', myFreqList)
+
+'''
     内部测试方法
 '''
 if __name__ == '__main__':
@@ -240,4 +252,5 @@ if __name__ == '__main__':
     #testNode()    #测试节点函数的方法
     #testCreateDataSet()      #测试创建数据集的方法
     #testFindPrefixPath()     #测试查找条件模式基
-    testMineTree()      #测试条件树的方法
+    #testMineTree()      #测试条件树的方法
+    testMineClickData()   #按钮网站点击数据
